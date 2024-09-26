@@ -31,17 +31,23 @@ COPY .env.example /var/www/.env
 # Install dependencies
 RUN composer install
 
+RUN composer update --ignore-platform-reqs
+
+RUN mkdir -p /var/www/database && \
+    touch /var/www/database/database.sqlite && \
+    chmod 664 /var/www/database/database.sqlite && \
+    chown www-data:www-data /var/www/database/database.sqlite
+
 # Generate key
 RUN php artisan key:generate
+
+RUN php artisan migrate --force
 
 # Expose port 8000 and start php server
 EXPOSE 8000
 CMD php artisan serve --host=0.0.0.0 --port=8000
 
-RUN composer update --ignore-platform-reqs
-
-
-
+CMD ["/bin/bash", "-c", "/var/www/start.sh"]
 
 
 
