@@ -25,6 +25,9 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . /var/www
 
+# Copy .env file
+COPY .env.example /var/www/.env
+
 # Install dependencies
 RUN composer install
 
