@@ -45,11 +45,11 @@ RUN php artisan migrate --force
 
 # Expose port 8000 and start php server
 EXPOSE 8000
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# CMD php artisan serve --host=0.0.0.0 --port=8000
 
 CMD ["/bin/bash", "-c", "/var/www/start.sh"]
 
-COPY ./database/database.sqlite /var/www/database/database.sqlite
+# COPY ./database/database.sqlite /var/www/database/database.sqlite
 
 
 
