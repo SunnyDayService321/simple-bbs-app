@@ -36,7 +36,7 @@ RUN composer update --ignore-platform-reqs
 RUN mkdir -p /var/www/database && \
     touch /var/www/database/database.sqlite && \
     chmod 664 /var/www/database/database.sqlite && \
-    chown www-data:www-data /var/www/database/database.sqlite
+    chown www-data:www-data /var/www/database/database.sqlite && chmod 777 /var/www/database/database.sqlite
 
 # Generate key
 RUN php artisan key:generate
@@ -48,6 +48,8 @@ EXPOSE 8000
 CMD php artisan serve --host=0.0.0.0 --port=8000
 
 CMD ["/bin/bash", "-c", "/var/www/start.sh"]
+
+COPY ./database/database.sqlite /var/www/database/database.sqlite
 
 
 

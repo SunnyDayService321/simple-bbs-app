@@ -21,7 +21,12 @@
         <div>
             <h2>{{ $post->title }}</h2>
             <p>{{ $post->content }}</p>
-            <small>{{ $post->created_at }}</small>
+            <small>{{ $post->created_at->format('Y年m月d日 H:i') }}</small>
+            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+            </form>
         </div>
         <hr>
     @endforeach

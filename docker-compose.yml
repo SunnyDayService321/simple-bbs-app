@@ -8,6 +8,8 @@ services:
       - "8000:8000"
     volumes:
       - .:/var/www
+      - ./database/database.sqlite:/var/www/database/database.sqlite
+      - ./database:/var/www/database
     environment:
       - DB_CONNECTION=sqlite
       - DB_DATABASE=/var/www/database/database.sqlite

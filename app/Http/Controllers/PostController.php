@@ -22,4 +22,11 @@ class PostController extends Controller
         Post::create($request->all());
         return redirect()->route('posts.index');
     }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->route('posts.index')->with('success', '投稿が削除されました。');
+    }
 }
