@@ -13,7 +13,7 @@ Docker環境で動作し、`docker-compose up` 一発で自動起動できます
 
 ## 📁 ディレクトリ構成
 
-\```
+```
 simple-bbs-app/
 ├── app/              # モデル・コントローラー・ミドルウェア
 ├── bootstrap/        # アプリケーション起動設定
@@ -28,7 +28,7 @@ simple-bbs-app/
 ├── docker-compose.yml
 ├── start.sh          # 自動起動スクリプト
 └── README.md
-\```
+```
 
 ## 🚀 セットアップ手順
 
