@@ -34,22 +34,22 @@ simple-bbs-app/
 
 ### 1. リポジトリをクローン
 
-\```bash
+```bash
 git clone https://github.com/SunnyDayService321/simple-bbs-app.git
 cd simple-bbs-app
-\```
+```
 
 ### 2. 環境変数ファイルを作成
 
-\```bash
+```bash
 cp .env.example .env
-\```
+```
 
 ### 3. Dockerコンテナを起動
 
-\```bash
+```bash
 docker-compose up -d --build
-\```
+```
 
 以下が自動で実行されます。
 - SQLiteデータベースファイルの作成
@@ -60,9 +60,9 @@ docker-compose up -d --build
 
 ## 🧪 テストの実行
 
-\```bash
+```bash
 docker-compose exec app php artisan test
-\```
+```
 
 ## 📋 主な機能
 
